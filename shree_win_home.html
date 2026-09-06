@@ -1,78 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Shree Win - Welcome page with Login and Register options.">
-<title>Shree Win | Welcome</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
-    background:
-      radial-gradient(circle at 20% 20%,rgba(108,92,231,.28),transparent 32%),
-      radial-gradient(circle at 80% 80%,rgba(0,210,255,.18),transparent 30%),
-      linear-gradient(135deg,#080b18,#11152b 50%,#070a14);
-    color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-  }
-  .glow{position:fixed;width:420px;height:420px;border-radius:50%;
-    background:rgba(126,87,255,.10);filter:blur(70px);pointer-events:none}
+<meta name="description" content="Shree Win - Welcome page with product links.">
+<title>Shree Win | Welcome</title><style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(108,92,231,.28),transparent 32%),
+    radial-gradient(circle at 80% 80%,rgba(0,210,255,.18),transparent 30%),
+    linear-gradient(135deg,#080b18,#11152b 50%,#070a14);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.glow{
+  position:fixed;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:rgba(126,87,255,.10);
+  filter:blur(70px);
+  pointer-events:none;
+}
+
+.card{
+  width:min(92%,900px);
+  min-height:560px;
+  padding:55px 45px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:30px;
+  background:rgba(16,20,40,.72);
+  backdrop-filter:blur(18px);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.logo{
+  width:82px;
+  height:82px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  font-size:30px;
+  font-weight:900;
+  background:linear-gradient(135deg,#8b5cf6,#22d3ee);
+  box-shadow:0 12px 35px rgba(124,92,246,.35);
+  margin-bottom:22px;
+}
+
+h1{
+  font-size:clamp(38px,7vw,72px);
+  letter-spacing:2px;
+  margin-bottom:14px;
+}
+
+.tag{
+  font-size:clamp(18px,3vw,28px);
+  font-weight:700;
+  color:#dfe5ff;
+}
+
+.sub{
+  margin-top:12px;
+  color:#9ca7c7;
+  font-size:15px;
+  max-width:560px;
+  line-height:1.6;
+}
+
+.actions{
+  display:flex;
+  gap:16px;
+  margin-top:34px;
+  width:min(100%,520px);
+}
+
+.btn{
+  flex:1;
+  padding:17px 24px;
+  border-radius:15px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:17px;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.login{
+  color:#fff;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);
+}
+
+.register{
+  color:#07111d;
+  background:linear-gradient(135deg,#67e8f9,#a78bfa);
+}
+
+.note{
+  margin-top:30px;
+  font-size:12px;
+  color:#697594;
+}
+
+@media(max-width:560px){
   .card{
-    width:min(92%,900px);
-    min-height:560px;
-    padding:55px 45px;
-    border:1px solid rgba(255,255,255,.13);
-    border-radius:30px;
-    background:rgba(16,20,40,.72);
-    backdrop-filter:blur(18px);
-    box-shadow:0 25px 80px rgba(0,0,0,.45);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;
+    min-height:520px;
+    padding:38px 20px;
+    border-radius:24px;
   }
-  .logo{
-    width:82px;height:82px;border-radius:24px;
-    display:grid;place-items:center;
-    font-size:30px;font-weight:900;
-    background:linear-gradient(135deg,#8b5cf6,#22d3ee);
-    box-shadow:0 12px 35px rgba(124,92,246,.35);
-    margin-bottom:22px;
+
+  .actions{
+    flex-direction:column;
   }
-  h1{font-size:clamp(38px,7vw,72px);letter-spacing:2px;margin-bottom:14px}
-  .tag{font-size:clamp(18px,3vw,28px);font-weight:700;color:#dfe5ff}
-  .sub{margin-top:12px;color:#9ca7c7;font-size:15px;max-width:560px;line-height:1.6}
-  .actions{display:flex;gap:16px;margin-top:34px;width:min(100%,520px)}
+
   .btn{
-    flex:1;padding:17px 24px;border-radius:15px;text-decoration:none;
-    font-weight:800;font-size:17px;transition:.2s;cursor:pointer;
+    width:100%;
   }
-  .btn:hover{transform:translateY(-3px)}
-  .login{color:#fff;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
-  .register{color:#07111d;background:linear-gradient(135deg,#67e8f9,#a78bfa)}
-  .note{margin-top:30px;font-size:12px;color:#697594}
-  @media(max-width:560px){
-    .card{min-height:520px;padding:38px 20px;border-radius:24px}
-    .actions{flex-direction:column}
-    .btn{width:100%}
-  }
-</style>
-</head>
-<body>
-<div class="glow"></div>
-<main class="card">
-  <div class="logo">SW</div>
-  <h1>SHREE WIN</h1>
-  <div class="tag">REGISTER &amp; GET 999 GIFT CODE</div>
-  <p class="sub">Welcome to the official Shree Win portal. Choose an option below to continue.</p>
+}
+</style></head><body><div class="glow"></div><main class="card">  <div class="logo">SW</div>  <h1>SHREE WIN</h1>  <div class="tag">
+    REGISTER &amp; GET 999 GIFT CODE
+  </div>  <p class="sub">
+    Welcome to the official Shree Win portal.
+    Choose an option below to continue.
+  </p>  <div class="actions"><!-- LOGIN PRODUCT -->
+<a
+  class="btn login"
+  href="https://www.1sikkim.com/#/register?invitationCode=36352121511
+  target="_blank"
+  rel="noopener noreferrer">
+  LOGIN
+</a>
 
-  <div class="actions">
-    <a class="btn login" href="login.html">LOGIN</a>
-    <a class="btn register" href="register.html">REGISTER</a>
-  </div>
+<!-- REGISTER PRODUCT -->
+<a
+  class="btn register"
+  href="https://www.1sikkim.com/#/register?invitationCode=36352121511
+  target="_blank"
+  rel="noopener noreferrer">
+  REGISTER
+</a>
 
-  <div class="note">© 2026 Shree Win • Welcome Portal</div>
-</main>
-</body>
-</html>
+  </div>  <div class="note">
+    © 2026 Shree Win • Welcome Portal
+  </div></main></body>
+</html>━━━━━━━━━━━━━━━━
